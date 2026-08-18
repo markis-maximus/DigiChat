@@ -200,8 +200,8 @@ on this workstation, outside this repo.
 3. **Real sprite art (this workstation only)** — DONE for idle. 150 forms in,
    all five stages sized and approved. The public clone correctly falls back to
    procedural placeholders. Still open locally, none blocking:
-   - the shared reincarnation egg: `sprites/_egg/idle.png` is empty, so the egg
-     is still the procedurally drawn one
+   - the shared reincarnation egg is deliberately left as the procedurally
+     drawn one; `sprites/_egg/idle.png` is empty by choice, not oversight
    - `walk.png` / `airborne.png` per form; every state currently falls back to
      idle, which works but means no motion art
    - `data/layout.json` is back to `"debug": false`; turn it on only for a
