@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DigiChat Admin</title>
+    <style>
+      :root {
+        --bg: #14161d; --panel: #1e2129; --border: #313644;
+        --text: #e8eaf0; --muted: #9aa1b0; --accent: #7aa2ff;
+        --warn: #ffb454; --danger: #ff6b6b; --ok: #5fd68b;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; padding: 16px; background: var(--bg); color: var(--text);
+        font: 14px/1.5 "Segoe UI", system-ui, sans-serif;
+      }
+      h1 { font-size: 18px; margin: 0 0 12px; }
+      h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;
+           color: var(--muted); margin: 0 0 8px; }
+      /* minmax(0,…) on the flexible column: without it a wide participants
+         table forces the whole page to scroll sideways. */
+      .grid { display: grid; grid-template-columns: 320px minmax(0, 1fr);
+              gap: 16px; align-items: start; }
+      @media (max-width: 720px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+      .panel { background: var(--panel); border: 1px solid var(--border);
+               border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+      .statrow { display: flex; justify-content: space-between; padding: 3px 0; }
+      .statrow .k { color: var(--muted); }
+      /* Five fixed columns cannot hold "In-Training" and "Ultimate" inside a
+         320px panel, and a 1fr track will not shrink below its label, so the
+         last button used to hang outside. Wrap instead of overflowing. */
+      .stages { display: grid; gap: 6px;
+                grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); }
+      .stages button { padding: 8px 6px; min-width: 0; }
+      button {
+        background: #262b38; color: var(--text); border: 1px solid var(--border);
+        border-radius: 6px; padding: 8px 10px; cursor: pointer; font: inherit;
+      }
+      button:hover:not(:disabled) { border-color: var(--accent); }
+      button:disabled { opacity: 0.45; cursor: not-allowed; }
+      button.active { background: var(--accent); color: #0c1020; font-weight: 600; }
+      button.danger { border-color: #5a3040; }
+      button.danger:hover:not(:disabled) { border-color: var(--danger); }
+      .actions { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+      .warnings { color: var(--warn); white-space: pre-line; }
+      .ok { color: var(--ok); }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+      th { color: var(--muted); font-weight: 500; font-size: 12px; }
+      #toast { position: fixed; bottom: 16px; right: 16px; background: #262b38;
+               border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px;
+               opacity: 0; transition: opacity 0.25s; max-width: 380px; }
+      #toast.show { opacity: 1; }
+      .devrow { display: flex; gap: 6px; margin-top: 6px; }
+      .devrow input { flex: 1; background: #12141b; color: var(--text);
+                      border: 1px solid var(--border); border-radius: 6px; padding: 7px 9px; font: inherit; }
+      .note { color: var(--muted); font-size: 12px; line-height: 1.45; margin: 10px 0 0; }
+      .transition-note { color: var(--warn); font-size: 12px; margin-top: 8px; display: none; }
+      .transition-note.show { display: block; }
+    </style>
+  </head>
+  <body>
+    <h1>DigiChat Admin</h1>
+    <div class="grid">
+      <div>
+        <div class="panel">
+          <h2>Status</h2>
+          <div class="statrow"><span class="k">Overlay session</span><span id="s-session">–</span></div>
+          <div class="statrow"><span class="k">Generation</span><span id="s-generation">–</span></div>
+          <div class="statrow"><span class="k">Stage</span><span id="s-stage">–</span></div>
+          <div class="statrow"><span class="k">Twitch</span><span id="s-twitch">–</span></div>
+          <div class="statrow"><span class="k">Visible chatters</span><span id="s-participants">–</span></div>
+          <div class="statrow"><span class="k">Lineages used</span><span id="s-lineages">–</span></div>
+        </div>
+
+        <div class="panel">
+          <h2>Stage</h2>
+          <div class="stages" id="stage-buttons"></div>
+          <div class="transition-note" id="transition-note">Transition running — controls locked…</div>
+          <div class="actions">
+            <button id="btn-kill" class="danger">Kill All…</button>
+            <button id="btn-reincarnate" class="danger">Reincarnate…</button>
+            <button id="btn-undo">Undo Last Transition</button>
+            <button id="btn-session" class="danger">Start New Overlay Session…</button>
+          </div>
+          <p class="note" id="death-note">Killing leaves everyone dead until you reincarnate —
+            take as long as you like. Reincarnate is locked until then, and Undo
+            revives them. Once reincarnated, Undo is gone for good.</p>
+          <p class="note">An overlay session decides who is currently on screen.
+            Starting one clears the overlay on this PC only — it never touches
+            your Twitch channel, and works the same in mock mode.</p>
+        </div>
+
+        <div class="panel">
+          <h2>Warnings</h2>
+          <div id="warnings" class="ok">No warnings.</div>
+        </div>
+
+        <div class="panel" id="dev-panel">
+          <h2>Dev / Mock chat</h2>
+          <div class="devrow">
+            <input id="dev-name" placeholder="viewer name (e.g. Dave)" />
+            <button id="dev-send">Send first message</button>
+          </div>
+          <div class="devrow">
+            <button id="dev-bulk5">+5 viewers</button>
+            <button id="dev-bulk31">+31 viewers (overflow test)</button>
+            <button id="dev-dup">Send duplicate event</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Participants</h2>
+        <table>
+          <thead>
+            <tr><th>Twitch name</th><th>Lineage</th><th>Current form</th><th>Joined</th></tr>
+          </thead>
+          <tbody id="participants"></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="toast"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

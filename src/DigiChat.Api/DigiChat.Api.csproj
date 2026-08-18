@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <!-- Publish is an allowlist: Web SDK wildcard content could otherwise copy
+         ignored local secrets, database files, and copyrighted sprite art. -->
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <RepositoryRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildProjectDirectory)\..\..'))</RepositoryRoot>
+    <PowerShellExe Condition="'$(PowerShellExe)' == ''">powershell</PowerShellExe>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiChat.Infrastructure\DigiChat.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="DigiChat.Domain.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Remove anything the Web SDK discovered before this project set
+         EnableDefaultContentItems, then add back only reviewed public files. -->
+    <Content Remove="**\*.config;**\*.json;wwwroot\**" />
+    <Content Include="appsettings.json;appsettings.Development.json"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest"
+             ExcludeFromSingleFile="true" />
+    <Content Include="$(RepositoryRoot)data\lineages.json"
+             Link="data\lineages.json"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest"
+             ExcludeFromSingleFile="true" />
+    <Content Include="$(RepositoryRoot)data\layout.json"
+             Link="data\layout.json"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest"
+             ExcludeFromSingleFile="true" />
+  </ItemGroup>
+
+  <Target Name="BuildPublicFrontendsForPublish" BeforeTargets="ComputeFilesToPublish">
+    <Message Importance="High" Text="Building public-safe Admin and Overlay frontends..." />
+    <Exec Condition="'$(SkipFrontendRestore)' != 'true'"
+          Command="npm ci --no-audit --no-fund"
+          WorkingDirectory="$(RepositoryRoot)src\DigiChat.Overlay" />
+    <Exec Condition="'$(SkipFrontendRestore)' != 'true'"
+          Command="npm ci --no-audit --no-fund"
+          WorkingDirectory="$(RepositoryRoot)src\DigiChat.Admin" />
+    <Exec Command="npm run build:public"
+          WorkingDirectory="$(RepositoryRoot)src\DigiChat.Overlay" />
+    <Exec Command="npm run build:public"
+          WorkingDirectory="$(RepositoryRoot)src\DigiChat.Admin" />
+    <!-- Published frontends come from gitignored staging directories, never
+         from wwwroot. Publishing out of wwwroot meant the public build had to
+         overwrite the overlay actually being served, silently stripping the
+         streamer's sprite art; it also made the artifact depend on whatever
+         happened to be in a developer's working tree. -->
+    <ItemGroup>
+      <_PublicOverlayFile Include="$(RepositoryRoot)artifacts\public-overlay\**\*" />
+      <_PublicAdminFile Include="$(RepositoryRoot)artifacts\public-admin\**\*" />
+      <ResolvedFileToPublish Include="@(_PublicOverlayFile)">
+        <RelativePath>wwwroot\overlay\%(_PublicOverlayFile.RecursiveDir)%(_PublicOverlayFile.Filename)%(_PublicOverlayFile.Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+      <ResolvedFileToPublish Include="@(_PublicAdminFile)">
+        <RelativePath>wwwroot\admin\%(_PublicAdminFile.RecursiveDir)%(_PublicAdminFile.Filename)%(_PublicAdminFile.Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="VerifyPublishedArtifact" AfterTargets="Publish">
+    <PropertyGroup>
+      <_AbsolutePublishDir>$([System.IO.Path]::GetFullPath('$(PublishDir)'))</_AbsolutePublishDir>
+    </PropertyGroup>
+    <!-- Append '.' so a trailing directory separator cannot escape the closing
+         quote in the Windows command line passed to powershell.exe. -->
+    <Exec Command="$(PowerShellExe) -NoProfile -NonInteractive -ExecutionPolicy Bypass -File &quot;$(RepositoryRoot)scripts\Test-PublicArtifact.ps1&quot; -PublishDirectory &quot;$(_AbsolutePublishDir).&quot;"
+          WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+</Project>

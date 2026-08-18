@@ -1,0 +1,51 @@
+MIT License
+
+Copyright (c) 2026 Markis_Maximus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This MIT license covers all original DigiChat code, scripts, build and CI
+configuration, documentation, and other authored repository material except
+the third-party and franchise material identified below.
+
+Digimon and all related names, characters, and media are trademarks of Bandai.
+This is an unofficial, non-commercial fan project, not affiliated with,
+sponsored by, or endorsed by Bandai or Toei Animation, and it claims no
+ownership of their material. No Digimon artwork is included in this repository.
+
+`data/lineages.json` is MIT as to its curation, structure, and ordering. The
+species names inside it are Bandai trademarks, used nominatively to identify the
+characters; that use is not licensed here and is not the author's to grant.
+
+`data/digimon-names.json` is a curated reference assembled from name fields
+returned by the digi-api.com API and Shadow Smith's Digimon API. digi-api.com
+credits official and fan sources, mainly Wikimon.net. Wikimon contributor
+content is available under Creative Commons Attribution-ShareAlike 3.0 (CC
+BY-SA 3.0): https://creativecommons.org/licenses/by-sa/3.0/ . To the extent
+that the reference file adapts that content, it remains under CC BY-SA 3.0
+rather than the MIT license above.
+
+DigiChat extracted only name fields, combined the two API result sets,
+normalized and curated the entries, and added a documented set of manually
+verified English aliases. This notice credits the APIs as sources; it does not
+claim that either API operator grants a blanket CC license over all API
+content. See the README section "License and IP" and the metadata at the top of
+`data/digimon-names.json` for source links and modification details.

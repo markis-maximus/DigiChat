@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DigiChat Overlay</title>
+    <style>
+      /* Transparent everywhere: OBS Browser Source composites this over the game. */
+      html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+      canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/security/advisories
+    about: >-
+      Use the repository's Security tab to report privately. Do not open a
+      public issue containing exploit details, tokens, or viewer data.
+  - name: Setup and operation questions
+    url: https://github.com/
+    about: >-
+      Check README.md, docs/runbooks/VERIFY.md and docs/runbooks/MOCK-OPERATION.md
+      first — first-run problems are usually covered there.

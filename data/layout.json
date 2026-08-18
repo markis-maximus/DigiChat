@@ -1,0 +1,13 @@
+{
+  "_comment": "Platform geometry in OBS canvas pixels (1:1 with the full-canvas Browser Source). Derived from OBS transforms on 2026-08-10: left platform x 0-1145 / top 208, right platform x 1144-1920 / top 532; the 324px step face between them is a solid wall. Set debug=true to draw surfaces, walls, walk bounds and the spawn zone.",
+  "placeholder": false,
+  "canvas": { "width": 1920, "height": 1080 },
+  "platforms": [
+    { "id": "left-upper", "left": 0, "right": 1145, "top": 208 },
+    { "id": "right-lower", "left": 1144, "right": 1920, "top": 532 }
+  ],
+  "walls": [{ "x": 1144.5, "top": 208, "bottom": 532 }],
+  "spawnZone": { "minX": 60, "maxX": 1860 },
+  "edgeMargin": 24,
+  "debug": false
+}

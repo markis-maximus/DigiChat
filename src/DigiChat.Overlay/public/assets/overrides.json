@@ -1,0 +1,299 @@
+{
+  "_comment": "Hand-written corrections merged on top of the generated manifest.json. The importer discovers facts (which files exist, their pixel sizes); this file holds the judgement calls. Keys are asset keys — the form name slugified, e.g. 'botamon', 'metalgreymon', 'falcomon-2006'. Use '_egg' for the shared reincarnation egg. Delete an entry to go back to the automatic behaviour. The importer never writes this file.",
+  "_settings": {
+    "_comment": "Project-wide knobs. The importer copies these into the generated manifest, so changing them takes effect on the next import — no code edit, no rebuild of anything else.",
+    "snapTolerance": 0.12,
+    "_snapTolerance": "How far a whole-number scale factor may sit from the ideal before the overlay uses the exact factor instead. Whole factors (2x, 3x, 1/2, 1/3) keep pixel edges sharp; exact factors keep a form the right size next to its stagemates. 0.15 = accept a snapped factor up to 15% off. Raise it to favour crisp pixels, lower it to favour consistent sizing.",
+    "stageTargetHeights": {
+      "fresh": 42,
+      "inTraining": 53,
+      "rookie": 84,
+      "champion": 115,
+      "ultimate": 146
+    },
+    "_stageTargetHeights": "Target height in canvas pixels of the VISIBLE artwork per stage. Forms are fitted near these, not pinned to them, so species keep their natural size differences. Raise the spread to make evolution read more dramatically on stream.",
+    "stageSizeVariance": {
+      "fresh": 1,
+      "inTraining": 1,
+      "rookie": 0.4,
+      "champion": 0.4,
+      "ultimate": 0.4
+    },
+    "_stageSizeVariance": "How strongly a stage flattens its forms to one height. 1 = every form rendered at the stage target, which suits stages whose species really are the same size (Fresh, In-Training). Lower lets the source art own size differences through, anchored on the stage median native height, down to 0 = one scale for the whole stage. Below 1 also removes the huge upscales that make small sources look blocky.",
+    "lockFacing": false,
+    "_lockFacing": "DIAGNOSTIC. While true, no sprite is ever mirrored, so every form shows the direction its artwork is actually drawn in. Watch the overlay, note which Digimon face LEFT, give those a facesLeft override, then set this back to false."
+  },
+  "_fields": {
+    "scaleMultiplier": "Multiplies the automatic scale. The overlay fits each form to its stage's target height and snaps to a whole-number factor (2x, 3x, or 1/2, 1/3) so pixel edges stay sharp. A multiplier here overrides that snap, so prefer 1.0 unless a form genuinely reads too big or too small next to its peers.",
+    "footAnchorY": "Where the feet sit in the frame, 0 = top edge, 1 = bottom edge. Default 1. Use it when art has empty space below the feet (0.91 means the feet are 91% down the frame) instead of re-cutting the PNG.",
+    "collisionWidthMultiplier": "Multiplies the collision box width, which defaults to 80% of the frame. This box decides ledge stops and step-jump clearance, so widen it for a form whose art has a lot of empty side margin.",
+    "collisionHeightMultiplier": "Same for height, which defaults to 92% of the frame.",
+    "facesLeft": "Set true when this form is drawn facing LEFT. The overlay mirrors a sprite to face its direction of travel, which assumes the art faces right; without this, art drawn the other way appears to moonwalk.",
+    "states": "Optional, and only needed for multi-frame art. Drop walk.png / airborne.png / land.png / getup.png beside idle.png and the importer picks them up on its own — nothing here required. For a state whose PNG is a SHEET rather than one frame, add it here: \"states\": { \"walk\": { \"frameWidth\": 48, \"frameHeight\": 48, \"frames\": [0,1,2,3], \"frameRate\": 8 } }. These merge into what the importer measured, so the file path and visible bounds it discovered are kept."
+  },
+  "_example": {
+    "agumon": {
+      "scaleMultiplier": 0.93,
+      "footAnchorY": 0.91
+    },
+    "garurumon": {
+      "scaleMultiplier": 1.12,
+      "collisionWidthMultiplier": 0.72
+    }
+  },
+  "botamon": {
+    "scaleMultiplier": 0.882
+  },
+  "punimon": {
+    "scaleMultiplier": 0.857
+  },
+  "yukimibotamon": {
+    "scaleMultiplier": 0.898
+  },
+  "chibomon": {
+    "scaleMultiplier": 0.893
+  },
+  "pururumon": {
+    "scaleMultiplier": 0.795
+  },
+  "relemon": {
+    "scaleMultiplier": 0.728
+  },
+  "zerimon": {
+    "scaleMultiplier": 0.786
+  },
+  "kuramon": {
+    "scaleMultiplier": 0.911
+  },
+  "cotsucomon": {
+    "scaleMultiplier": 0.896
+  },
+  "zurumon": {
+    "scaleMultiplier": 0.5,
+    "facesLeft": true
+  },
+  "mokumon": {
+    "scaleMultiplier": 0.857,
+    "facesLeft": true
+  },
+  "choromon": {
+    "scaleMultiplier": 0.81
+  },
+  "dodomon": {
+    "scaleMultiplier": 0.5,
+    "facesLeft": true
+  },
+  "fufumon": {
+    "scaleMultiplier": 0.667,
+    "facesLeft": true
+  },
+  "bommon": {
+    "scaleMultiplier": 0.667,
+    "facesLeft": true
+  },
+  "pafumon": {
+    "scaleMultiplier": 0.714,
+    "facesLeft": true
+  },
+  "popomon": {
+    "scaleMultiplier": 0.714,
+    "facesLeft": true
+  },
+  "conomon": {
+    "scaleMultiplier": 0.5,
+    "facesLeft": true
+  },
+  "upamon": {
+    "scaleMultiplier": 0.875
+  },
+  "pinamon": {
+    "scaleMultiplier": 0.912
+  },
+  "pagumon": {
+    "scaleMultiplier": 0.792
+  },
+  "nyaromon": {
+    "scaleMultiplier": 0.822
+  },
+  "sakuttomon": {
+    "scaleMultiplier": 0.937
+  },
+  "demimeramon": {
+    "scaleMultiplier": 0.961
+  },
+  "kakkinmon": {
+    "scaleMultiplier": 0.96
+  },
+  "viximon": {
+    "scaleMultiplier": 0.96
+  },
+  "gigimon": {
+    "scaleMultiplier": 0.986
+  },
+  "tokomon": {
+    "scaleMultiplier": 0.936
+  },
+  "koromon": {
+    "scaleMultiplier": 0.9
+  },
+  "caprimon": {
+    "scaleMultiplier": 0.833,
+    "facesLeft": true
+  },
+  "frimon": {
+    "scaleMultiplier": 0.755,
+    "facesLeft": true
+  },
+  "dorimon": {
+    "scaleMultiplier": 0.833,
+    "facesLeft": true
+  },
+  "kokomon": {
+    "scaleMultiplier": 0.833,
+    "facesLeft": true
+  },
+  "kyaromon": {
+    "scaleMultiplier": 0.83,
+    "facesLeft": true
+  },
+  "impmon": {
+    "scaleMultiplier": 1.25,
+    "facesLeft": true
+  },
+  "armadillomon": {
+    "scaleMultiplier": 0.87
+  },
+  "fanbeemon": {
+    "scaleMultiplier": 0.65,
+    "facesLeft": true
+  },
+  "zubamon": {
+    "scaleMultiplier": 0.92
+  },
+  "falcomon": {
+    "scaleMultiplier": 1.08,
+    "facesLeft": true
+  },
+  "gazimon": {
+    "scaleMultiplier": 0.92
+  },
+  "ludomon": {
+    "scaleMultiplier": 0.9
+  },
+  "terriermon": {
+    "scaleMultiplier": 0.6
+  },
+  "ryudamon": {
+    "scaleMultiplier": 0.92,
+    "facesLeft": true
+  },
+  "gabumon": {
+    "scaleMultiplier": 0.92
+  },
+  "salamon": {
+    "scaleMultiplier": 0.83
+  },
+  "hawkmon": {
+    "scaleMultiplier": 0.94
+  },
+  "gomamon": {
+    "scaleMultiplier": 0.75
+  },
+  "patamon": {
+    "scaleMultiplier": 0.659
+  },
+  "tentomon": {
+    "scaleMultiplier": 0.95
+  },
+  "wormmon": {
+    "scaleMultiplier": 0.594
+  },
+  "guardromon": {
+    "scaleMultiplier": 0.869
+  },
+  "devimon": {
+    "scaleMultiplier": 0.763
+  },
+  "waspmon": {
+    "scaleMultiplier": 0.571
+  },
+  "sealsdramon": {
+    "scaleMultiplier": 0.741,
+    "facesLeft": true
+  },
+  "chrysalimon": {
+    "scaleMultiplier": 1.121,
+    "facesLeft": true
+  },
+  "angemon": {
+    "scaleMultiplier": 1.035
+  },
+  "magnaangemon": {
+    "scaleMultiplier": 1.035
+  },
+  "skullmeramon": {
+    "scaleMultiplier": 1.51,
+    "facesLeft": true
+  },
+  "lillymon": {
+    "scaleMultiplier": 1.397
+  },
+  "chirinmon": {
+    "scaleMultiplier": 1.253,
+    "facesLeft": true
+  },
+  "puroromon": {
+    "facesLeft": true
+  },
+  "kyokyomon": {
+    "facesLeft": true
+  },
+  "dorumon": {
+    "facesLeft": true
+  },
+  "commandramon": {
+    "facesLeft": true
+  },
+  "liollmon": {
+    "facesLeft": true
+  },
+  "lopmon": {
+    "facesLeft": true
+  },
+  "kudamon": {
+    "facesLeft": true
+  },
+  "dorugamon": {
+    "facesLeft": true
+  },
+  "peckmon": {
+    "facesLeft": true
+  },
+  "ginryumon": {
+    "facesLeft": true
+  },
+  "liamon": {
+    "facesLeft": true
+  },
+  "turuiemon": {
+    "facesLeft": true
+  },
+  "reppamon": {
+    "facesLeft": true
+  },
+  "dorugreymon": {
+    "facesLeft": true
+  },
+  "cannonbeemon": {
+    "facesLeft": true
+  },
+  "crowmon": {
+    "facesLeft": true
+  },
+  "hisyaryumon": {
+    "facesLeft": true
+  },
+  "antylamon": {
+    "facesLeft": true
+  }
+}

@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+# Windows launchers are the one source type that requires Windows line endings.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Never run binary/runtime material through line-ending conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mdf binary
+*.ldf binary
+*.bak binary

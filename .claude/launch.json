@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "digichat",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": ["run", "--project", "src/DigiChat.Api"],
+      "port": 5170
+    }
+  ]
+}

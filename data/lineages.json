@@ -1,0 +1,485 @@
+{
+  "_comment": "Editable lineage roster. The seeder upserts by slug at startup; edit/replace this file freely without touching application code. Stages: fresh, inTraining, rookie, champion, ultimate. Each form name is slugified into an assetKey that maps into the overlay asset manifest (placeholder art is used when no manifest entry exists). V1 FINAL roster (2026-08-12): 30 lineages, 150 form slots, 150 unique species, no species repeated anywhere. Generated from the asset package lineages.json; notes carry that package s evolution_standard.",
+  "lineages": [
+    {
+      "slug": "agumon-family",
+      "name": "Agumon Family",
+      "orderIndex": 1,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Botamon",
+        "inTraining": "Koromon",
+        "rookie": "Agumon",
+        "champion": "Greymon",
+        "ultimate": "MetalGreymon"
+      }
+    },
+    {
+      "slug": "gabumon-family",
+      "name": "Gabumon Family",
+      "orderIndex": 2,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Punimon",
+        "inTraining": "Tsunomon",
+        "rookie": "Gabumon",
+        "champion": "Garurumon",
+        "ultimate": "WereGarurumon"
+      }
+    },
+    {
+      "slug": "biyomon-family",
+      "name": "Biyomon Family",
+      "orderIndex": 3,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Nyokimon",
+        "inTraining": "Yokomon",
+        "rookie": "Biyomon",
+        "champion": "Birdramon",
+        "ultimate": "Garudamon"
+      }
+    },
+    {
+      "slug": "palmon-family",
+      "name": "Palmon Family",
+      "orderIndex": 4,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Yuramon",
+        "inTraining": "Tanemon",
+        "rookie": "Palmon",
+        "champion": "Togemon",
+        "ultimate": "Lillymon"
+      }
+    },
+    {
+      "slug": "tentomon-family",
+      "name": "Tentomon Family",
+      "orderIndex": 5,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Pabumon",
+        "inTraining": "Motimon",
+        "rookie": "Tentomon",
+        "champion": "Kabuterimon",
+        "ultimate": "MegaKabuterimon"
+      }
+    },
+    {
+      "slug": "gomamon-family",
+      "name": "Gomamon Family",
+      "orderIndex": 6,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Pichimon",
+        "inTraining": "Bukamon",
+        "rookie": "Gomamon",
+        "champion": "Ikkakumon",
+        "ultimate": "Zudomon"
+      }
+    },
+    {
+      "slug": "patamon-family",
+      "name": "Patamon Family",
+      "orderIndex": 7,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "Poyomon",
+        "inTraining": "Tokomon",
+        "rookie": "Patamon",
+        "champion": "Angemon",
+        "ultimate": "MagnaAngemon"
+      }
+    },
+    {
+      "slug": "gatomon-family",
+      "name": "Gatomon Family",
+      "orderIndex": 8,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Adventure partner/narrative evolution family.",
+      "forms": {
+        "fresh": "YukimiBotamon",
+        "inTraining": "Nyaromon",
+        "rookie": "Salamon",
+        "champion": "Gatomon",
+        "ultimate": "Angewomon"
+      }
+    },
+    {
+      "slug": "veemon-family",
+      "name": "Veemon Family",
+      "orderIndex": 9,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Digimon Adventure 02 partner line through the ExVeemon-side DNA evolution.",
+      "forms": {
+        "fresh": "Chibomon",
+        "inTraining": "DemiVeemon",
+        "rookie": "Veemon",
+        "champion": "ExVeemon",
+        "ultimate": "Paildramon"
+      }
+    },
+    {
+      "slug": "wormmon-family",
+      "name": "Wormmon Family",
+      "orderIndex": 10,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Digimon Adventure 02 partner line through the Stingmon-side DNA evolution.",
+      "forms": {
+        "fresh": "Leafmon",
+        "inTraining": "Minomon",
+        "rookie": "Wormmon",
+        "champion": "Stingmon",
+        "ultimate": "Dinobeemon"
+      }
+    },
+    {
+      "slug": "hawkmon-family",
+      "name": "Hawkmon Family",
+      "orderIndex": 11,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Digimon Adventure 02 partner line through Silphymon.",
+      "forms": {
+        "fresh": "Pururumon",
+        "inTraining": "Poromon",
+        "rookie": "Hawkmon",
+        "champion": "Aquilamon",
+        "ultimate": "Silphymon"
+      }
+    },
+    {
+      "slug": "armadillomon-family",
+      "name": "Armadillomon Family",
+      "orderIndex": 12,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Digimon Adventure 02 partner line through Shakkoumon.",
+      "forms": {
+        "fresh": "Tsubumon",
+        "inTraining": "Upamon",
+        "rookie": "Armadillomon",
+        "champion": "Ankylomon",
+        "ultimate": "Shakkoumon"
+      }
+    },
+    {
+      "slug": "guilmon-family",
+      "name": "Guilmon Family",
+      "orderIndex": 13,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Tamers Guilmon partner line.",
+      "forms": {
+        "fresh": "Jyarimon",
+        "inTraining": "Gigimon",
+        "rookie": "Guilmon",
+        "champion": "Growlmon",
+        "ultimate": "WarGrowlmon"
+      }
+    },
+    {
+      "slug": "renamon-family",
+      "name": "Renamon Family",
+      "orderIndex": 14,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Tamers Renamon partner line.",
+      "forms": {
+        "fresh": "Relemon",
+        "inTraining": "Viximon",
+        "rookie": "Renamon",
+        "champion": "Kyubimon",
+        "ultimate": "Taomon"
+      }
+    },
+    {
+      "slug": "terriermon-family",
+      "name": "Terriermon Family",
+      "orderIndex": 15,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Digimon Tamers Terriermon partner line.",
+      "forms": {
+        "fresh": "Zerimon",
+        "inTraining": "Gummymon",
+        "rookie": "Terriermon",
+        "champion": "Gargomon",
+        "ultimate": "Rapidmon"
+      }
+    },
+    {
+      "slug": "keramon-family",
+      "name": "Keramon Family",
+      "orderIndex": 16,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Iconic Diaboromon-family narrative chain through Infermon.",
+      "forms": {
+        "fresh": "Kuramon",
+        "inTraining": "Tsumemon",
+        "rookie": "Keramon",
+        "champion": "Chrysalimon",
+        "ultimate": "Infermon"
+      }
+    },
+    {
+      "slug": "zubamon-legend-arms",
+      "name": "Zubamon Legend-Arms",
+      "orderIndex": 17,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Single-device Legend-Arms family: Sakumon → Sakuttomon → Zubamon → ZubaEagermon → Duramon.",
+      "forms": {
+        "fresh": "Sakumon",
+        "inTraining": "Sakuttomon",
+        "rookie": "Zubamon",
+        "champion": "ZubaEagermon",
+        "ultimate": "Duramon"
+      }
+    },
+    {
+      "slug": "ludomon-legend-arms",
+      "name": "Ludomon Legend-Arms",
+      "orderIndex": 18,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Single-device Legend-Arms family: Cotsucomon → Kakkinmon → Ludomon → TiaLudomon → RaijiLudomon.",
+      "forms": {
+        "fresh": "Cotsucomon",
+        "inTraining": "Kakkinmon",
+        "rookie": "Ludomon",
+        "champion": "TiaLudomon",
+        "ultimate": "RaijiLudomon"
+      }
+    },
+    {
+      "slug": "gazimon-dark-dragon",
+      "name": "Gazimon Dark Dragon",
+      "orderIndex": 19,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Single-game coherent chain: Zurumon → Pagumon → Gazimon → Devidramon → Megadramon.",
+      "forms": {
+        "fresh": "Zurumon",
+        "inTraining": "Pagumon",
+        "rookie": "Gazimon",
+        "champion": "Devidramon",
+        "ultimate": "Megadramon"
+      }
+    },
+    {
+      "slug": "meramon-nightmare-soldiers",
+      "name": "Meramon Nightmare Soldiers",
+      "orderIndex": 20,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Single-device Nightmare Soldiers chain: Mokumon → DemiMeramon → Candlemon → Meramon → SkullMeramon.",
+      "forms": {
+        "fresh": "Mokumon",
+        "inTraining": "DemiMeramon",
+        "rookie": "Candlemon",
+        "champion": "Meramon",
+        "ultimate": "SkullMeramon"
+      }
+    },
+    {
+      "slug": "hagurumon-machine",
+      "name": "Hagurumon Machine",
+      "orderIndex": 21,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Single-game coherent machine chain: Choromon → Caprimon → Hagurumon → Guardromon → Andromon.",
+      "forms": {
+        "fresh": "Choromon",
+        "inTraining": "Caprimon",
+        "rookie": "Hagurumon",
+        "champion": "Guardromon",
+        "ultimate": "Andromon"
+      }
+    },
+    {
+      "slug": "impmon-armageddon-army",
+      "name": "Impmon Armageddon Army",
+      "orderIndex": 22,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Pendulum Progress Armageddon Army family centered on Impmon → Devimon → LadyDevimon.",
+      "forms": {
+        "fresh": "Puttimon",
+        "inTraining": "Cupimon",
+        "rookie": "Impmon",
+        "champion": "Devimon",
+        "ultimate": "LadyDevimon"
+      }
+    },
+    {
+      "slug": "falcomon-savers",
+      "name": "Falcomon Savers",
+      "orderIndex": 23,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A",
+      "notes": "Digimon Savers partner family for Falcomon through Crowmon.",
+      "forms": {
+        "fresh": "Puwamon",
+        "inTraining": "Pinamon",
+        "rookie": "Falcomon",
+        "champion": "Peckmon",
+        "ultimate": "Crowmon"
+      }
+    },
+    {
+      "slug": "royal-base",
+      "name": "Royal Base",
+      "orderIndex": 24,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Royal Base insect line used as a coherent Pendulum X family.",
+      "forms": {
+        "fresh": "Pupumon",
+        "inTraining": "Puroromon",
+        "rookie": "FanBeemon",
+        "champion": "Waspmon",
+        "ultimate": "CannonBeemon"
+      }
+    },
+    {
+      "slug": "dorumon-x-antibody",
+      "name": "Dorumon X-Antibody",
+      "orderIndex": 25,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A/B",
+      "notes": "Dorumon X-Antibody/Chronicle family with the Pendulum X baby progression.",
+      "forms": {
+        "fresh": "Dodomon",
+        "inTraining": "Dorimon",
+        "rookie": "Dorumon",
+        "champion": "Dorugamon",
+        "ultimate": "DoruGreymon"
+      }
+    },
+    {
+      "slug": "ryudamon-family",
+      "name": "Ryudamon Family",
+      "orderIndex": 26,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Ryudamon device family through Hisyaryumon.",
+      "forms": {
+        "fresh": "Fufumon",
+        "inTraining": "Kyokyomon",
+        "rookie": "Ryudamon",
+        "champion": "Ginryumon",
+        "ultimate": "Hisyaryumon"
+      }
+    },
+    {
+      "slug": "d-brigade",
+      "name": "D-Brigade",
+      "orderIndex": 27,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Exact D-Brigade device chain: Bommon → Missimon → Commandramon → Sealsdramon → Tankdramon.",
+      "forms": {
+        "fresh": "Bommon",
+        "inTraining": "Missimon",
+        "rookie": "Commandramon",
+        "champion": "Sealsdramon",
+        "ultimate": "Tankdramon"
+      }
+    },
+    {
+      "slug": "kudamon-holy-beast",
+      "name": "Kudamon Holy Beast",
+      "orderIndex": 28,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority A/B",
+      "notes": "Kudamon holy-beast family using the Accel device progression through Chirinmon.",
+      "forms": {
+        "fresh": "Pafumon",
+        "inTraining": "Kyaromon",
+        "rookie": "Kudamon",
+        "champion": "Reppamon",
+        "ultimate": "Chirinmon"
+      }
+    },
+    {
+      "slug": "liollmon-beast",
+      "name": "Liollmon Beast",
+      "orderIndex": 29,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Exact beast-family device progression through Liollmon → Liamon → LoaderLeomon.",
+      "forms": {
+        "fresh": "Popomon",
+        "inTraining": "Frimon",
+        "rookie": "Liollmon",
+        "champion": "Liamon",
+        "ultimate": "LoaderLeomon"
+      }
+    },
+    {
+      "slug": "lopmon-martial",
+      "name": "Lopmon Martial",
+      "orderIndex": 30,
+      "enabled": true,
+      "sourceMedia": null,
+      "canonicality": "Priority B",
+      "notes": "Coherent Lopmon martial branch: Conomon → Kokomon → Lopmon → Turuiemon → Antylamon.",
+      "forms": {
+        "fresh": "Conomon",
+        "inTraining": "Kokomon",
+        "rookie": "Lopmon",
+        "champion": "Turuiemon",
+        "ultimate": "Antylamon"
+      }
+    }
+  ]
+}

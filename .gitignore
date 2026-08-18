@@ -1,0 +1,45 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+artifacts/
+
+# Node
+node_modules/
+dist/
+*.local
+
+# Local secrets & tokens (never commit)
+appsettings.Local.json
+**/twitch-tokens.json
+
+# Frontend build output (built into the API's wwwroot)
+src/DigiChat.Api/wwwroot/overlay/
+src/DigiChat.Api/wwwroot/admin/
+
+# Real Digimon art is never committed (see README "Adding real Digimon art").
+# manifest.json is generated from it by tools/import-assets.mjs; overrides.json
+# is hand-written and IS committed.
+src/DigiChat.Overlay/public/assets/sheets/
+src/DigiChat.Overlay/public/assets/sprites/
+src/DigiChat.Overlay/public/assets/manifest.json
+# Asset-pack drop files (inputs). The authoritative roster is data/lineages.json.
+src/DigiChat.Overlay/public/assets/*.txt
+src/DigiChat.Overlay/public/assets/*.csv
+src/DigiChat.Overlay/public/assets/*.md
+src/DigiChat.Overlay/public/assets/*.py
+src/DigiChat.Overlay/public/assets/lineages.json
+
+# Local database files (LocalDB attaches data/db/DigiChat.mdf in place)
+data/db/
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+
+# Generated diagnostic pages (self-contained, embed copyrighted art)
+src/DigiChat.Overlay/public/assets/*.html

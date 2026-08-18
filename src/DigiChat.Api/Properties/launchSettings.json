@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "DigiChat.Api": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:5170",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

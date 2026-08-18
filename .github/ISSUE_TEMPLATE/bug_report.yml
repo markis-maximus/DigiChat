@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in DigiChat isn't behaving as documented
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before you paste anything:** DigiChat's logs record chatter display
+        names and Twitch user IDs, and its database files contain viewer
+        history. Redact those before attaching anything, and never attach
+        `twitch-tokens.json`, `appsettings.Local.json`, or a `.mdf`/`.bak`.
+
+        Found a **security** issue? Don't use this form — report it privately
+        through the Security tab so the details aren't public while it's unfixed.
+
+        Reproducing in **mock mode** (`start-digichat-mock.bat`) is ideal: it
+        uses a separate database and no Twitch connection, so nothing you share
+        touches real stream history.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `git rev-parse --short HEAD`
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options:
+        - Mock (start-digichat-mock.bat)
+        - Live Twitch (start-digichat.bat)
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Mock mode preferred. Include the admin actions you took.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened instead
+      description: For overlay problems, describe what was on screen in OBS.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines (redacted)
+      description: From `logs/digichat-*.log`. Remove display names and user IDs.
+      render: text
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: "Windows version, `dotnet --info` SDK version, OBS version"
